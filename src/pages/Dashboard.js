@@ -5,8 +5,19 @@ import { GithubContext } from '../context/context';
 import { MdRestaurant } from 'react-icons/md';
 
 const Dashboard = () => {
-  const data = useContext(GithubContext);
-  console.log(data)
+  const { loading } = useContext(GithubContext);
+
+  if (loading) {
+    return (
+      <main className="main">
+        <Navbar />
+        <Search />
+        <div className="loading-img">
+          <img src={loadingImage} alt="loading" />
+        </div>
+      </main>
+    )
+  }
   return (
     <main>
       <Navbar />
