@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import loginImg from '../images/login-img.svg';
 
 const Login = () => {
+  const { loginWithRedirect, isLoading } = useAuth0();
+
   return (
     <Wrapper>
       <div className="container">
         <img src={loginImg} alt="login" />
         <h1>github user</h1>
-        <button className="btn">Login</button>
+        <button className="btn" onClick={loginWithRedirect}>Login/SignUp</button>
       </div>
     </Wrapper>
   );
